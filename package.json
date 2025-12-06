@@ -1,24 +1,31 @@
 {
-  "name": "@frontgao/util",
-  "version": "1.0.7",
-  "description": "设计用于js且兼容ts的自用工具库，目前提供有获取四舍五入数值的方法等...",
-  "types":  "./dist/index.d.ts",
-  "keywords": [
-    "npm",
-    "typescript",
-    "packages"
-  ],
-  "exports": {
-    "require": "./dist/index.cjs",
-    "import": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
+  "name": "npm-collections",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "license": "ISC",
+  "description": "TypeScript monorepo with pnpm for managing all the npm packages published by me",
+  "author": "frontgao",
+  "scripts": {
+    "build": "pnpm -r --parallel --stream build",
+    "clean": "pnpm -r exec rimraf -rf dist node_modules",
+    "preencrypt:apps": "pnpm exec rimraf apps",
+    "encrypt:apps": "pnpm --filter @npm-collections/gulp-tools encrypt:apps",
+    "predecrypt:apps": "pnpm exec rimraf apps-code",
+    "decrypt:apps": "pnpm --filter @npm-collections/gulp-tools decrypt:apps",
+    "build:aes-cbc-helper": "pnpm --filter aes-cbc-helper build",
+    "build:vite-plugin-config-helper": "pnpm --filter vite-plugin-config-helper dev",
+    "build:vite-plugin-env-helper": "pnpm --filter vite-plugin-env-helper dev",
+    "build:vite-plugin-scan-routes": "pnpm --filter vite-plugin-scan-routes dev"
   },
-  "author": "topfivegao",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:TopFiveGao/util.git"
-  }
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "rimraf": "6.1.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.24.0"
+  },
+  "packageManager": "pnpm@10.24.0"
 }
