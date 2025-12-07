@@ -6,16 +6,19 @@ TypeScript monorepo with pnpm workspace.
 
 ```
 npm-collections/
-├── packages/         # 共享包
-│   ├── core/         # 核心工具包
-│   └── shared/       # 共享类型和工具
-├── apps/             # 加密文件(packages/)
-│   └── example/      
-├── apps-code/        # 解密文件
-│   └── example/      
+├── packages/                   # 库源码
+│   ├── first-registry/         # 第一个 npm 库
+│   └── second-registry/        # 第二个 npm 库
+├── apps/                       # 加密库(packages/)
+│   ├── first-registry/         # 第一个加密 npm 库
+│   └── second-registry/        # 第二个加密 npm 库
+├── apps-code/                  # 库源码
+│   ├── first-registry/         # 第一个 npm 库
+│   └── second-registry/        # 第二个 npm 库
 ├── pnpm-workspace.yaml
 ├── package.json
 └── tsconfig.base.json
+└── tsconfig.json
 ```
 
 ## 技术栈
@@ -50,13 +53,28 @@ npm-collections/
 
 ## 包说明
 
-### @npm-collections/core
+### aes-cbc-helper
 
-核心工具包，包含通用工具函数。
+提供浏览器端对称加密功能的一个库。
 
-### @npm-collections/shared
+### vite-plugin-config-helper
 
-共享类型和工具，供其他包使用。
+vite 插件, 能快速集成基于 element-plus 的后台管理系统的 。
+
+### vite-plugin-env-helper
+
+vite 插件，能够提供 typescript 的类型支持和复杂对象变量的支持。
+
+### vite-plugin-scan-routes
+
+vite 插件，能够提供 typescript 的类型支持和复杂对象变量的支持。
+
+### validator-cnid
+
+验证给定字符是否合法。实现了两个功能: isValidCNID 和 isFemale 。
+#### 技术要点
+* 字符截取函数 substring（substr已废弃） slice，这两个的区别就是 slice 可接收负数，而 substring 是会把负数转换成 0 处理，且它总是会把两个参数中最小的值作为起点。
+* Date 构造函数接收参数时， year（0-99）会被解释为 1900 年开始的第 year 年、 month 范围为 0-11， day 范围为 1-31 等等。接收参数不合法时，getDate会返回上一月的最后一天，所以一般用 new Date(2025,11,0) 获取11月的最大天数。
 
 ## License
 

@@ -16,7 +16,8 @@
     "build:aes-cbc-helper": "pnpm --filter aes-cbc-helper build",
     "build:vite-plugin-config-helper": "pnpm --filter vite-plugin-config-helper dev",
     "build:vite-plugin-env-helper": "pnpm --filter vite-plugin-env-helper dev",
-    "build:vite-plugin-scan-routes": "pnpm --filter vite-plugin-scan-routes dev"
+    "build:vite-plugin-scan-routes": "pnpm --filter vite-plugin-scan-routes dev",
+    "build:validator-cnid": "pnpm --filter validator-cnid build"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",

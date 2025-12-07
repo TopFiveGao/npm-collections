@@ -95,6 +95,30 @@ importers:
         specifier: ^18.0.0
         version: 18.0.0
 
+  packages/validator-cnid:
+    devDependencies:
+      '@tsconfig/node22':
+        specifier: ^22.0.2
+        version: 22.0.5
+      '@types/node':
+        specifier: ^22.18.11
+        version: 22.19.1
+      eslint:
+        specifier: ^9.37.0
+        version: 9.39.1(jiti@2.6.1)
+      jiti:
+        specifier: ^2.6.1
+        version: 2.6.1
+      prettier:
+        specifier: 3.6.2
+        version: 3.6.2
+      typescript:
+        specifier: ~5.9.0
+        version: 5.9.3
+      vite:
+        specifier: 7.2.4
+        version: 7.2.4(@types/node@22.19.1)(jiti@2.6.1)(terser@5.44.1)
+
   packages/vite-plugin-config-helper:
     dependencies:
       vite:
